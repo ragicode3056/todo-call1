@@ -4,6 +4,7 @@ import { ViewDetails } from "./ViewDetails";
 import { Submit } from "./Submit";
 import { useRef, useState } from "react";
 import React from 'react';
+import { SubHeader } from "./SubHeader";
 import ReactDOM from 'react-dom';
 
 export const Container  =(props) =>{
@@ -32,6 +33,7 @@ export const Container  =(props) =>{
         <div className = "container">
             <Header/>
             <Details addDetails={addDetails}/> 
+            <SubHeader/>
             <ViewDetails details = {details} changeStatus={changeStatus}/>
             <Submit onSubmitClick={onsubmitClick}/>
         </div>

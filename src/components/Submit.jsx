@@ -6,7 +6,7 @@ export const Submit = ({onSubmitClick}) =>{
     }
     return (
         <div className={classes.mrgn}>
-            <button type = "submit" className={classes.btn} onClick = {submitHandler}>Submit</button>
+            <button type = "submit" className="btn" onClick = {submitHandler}>Submit</button>
         </div>
     )
 }

@@ -11,7 +11,14 @@ export const Details = ({addDetails}) => {
     const submitHandler = (e) =>{
         addDetails([tname,tdate,ttype,false]);
         e.preventDefault();
+        // clearInp();
     }
+    const clearInp = (e) =>{
+        setTname("");
+        setTdate("");
+        setTtype("");
+    }
+
     return (
         <div className={classes.DetailsBox}>
             <div className={classes.detailTxt}> Enter Details</div>
@@ -28,6 +35,7 @@ export const Details = ({addDetails}) => {
                                  className={classes.detailsInpField}
                                  value= {tname}
                                  onChange = {e =>setTname(e.target.value)}
+                                 onFocus = {clearInp}
                                 ></input>
                             </div>
                             <div>
@@ -55,7 +63,7 @@ export const Details = ({addDetails}) => {
                             </div>
                         </div>               
                         <div>
-                            <button type="submit" className={classes.btn}>Add Details</button>
+                            <button type="submit" className="btn">Add Details</button>
                         </div>
                     </form>
                 </div>

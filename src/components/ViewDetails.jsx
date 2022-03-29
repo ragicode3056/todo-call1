@@ -1,6 +1,10 @@
 import React from "react";
+import edit from './edit.png';
 
 export const ViewDetails = (props) =>{ 
+    const editHandler = () =>{
+        console.log("edit clicked");
+    }
 
     return (
         <div>
@@ -9,8 +13,9 @@ export const ViewDetails = (props) =>{
                     <tr>
                         <th>Task</th>
                         <th>Start Date</th>
-                        <th>Fitness</th>
+                        <th>Type</th>
                         <th>State</th>
+                        <th>Edit</th>
                       
                     </tr>
                 </thead>
@@ -28,6 +33,9 @@ export const ViewDetails = (props) =>{
                         }
                     })(i)}>
                     </input></td>
+                    <td>
+                        <img src = {edit} onClick = {editHandler}className ="edit-icon"/>
+                    </td>
                     </tr>
                 })}
                 </tbody>
