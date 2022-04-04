@@ -1,11 +1,17 @@
 import React from "react";
+import { useState } from "react";
 import edit from './edit.png';
 
-export const ViewDetails = (props) =>{ 
-    const editHandler = () =>{
-        console.log("edit clicked");
-    }
-
+export const ViewDetails = ({editHandler,...props}) =>{   
+    
+    
+    // const hideClm ={
+    //     display: "none"
+    // }
+    // // const showClm = {
+    // //     display:"block"
+    // // }
+  
     return (
         <div>
             <table>
@@ -15,7 +21,7 @@ export const ViewDetails = (props) =>{
                         <th>Start Date</th>
                         <th>Type</th>
                         <th>State</th>
-                        <th>Edit</th>
+                        <th>{props.loginStatus ? "Edit" : "" }</th>
                       
                     </tr>
                 </thead>
@@ -33,8 +39,15 @@ export const ViewDetails = (props) =>{
                         }
                     })(i)}>
                     </input></td>
-                    <td>
-                        <img src = {edit} onClick = {editHandler}className ="edit-icon"/>
+                    <td > {props.loginStatus ?  <img src = {edit} onClick = {((id)=>{
+                            return ()=>{
+                                editHandler(id);
+                            }
+                        })(i)}className ="edit-icon"/> : ""}
+                       
+                       
+                      
+                        
                     </td>
                     </tr>
                 })}

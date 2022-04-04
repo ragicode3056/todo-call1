@@ -63,7 +63,7 @@ th, td {
   padding: 0.5rem 1.5rem;
   cursor: pointer;
   border-radius: 4px;
-  background-color: #c3c0c1;
+  background-color: #2f292b;
   color: white;
   border: 1px solid #c3c0c1;
   margin: 0 1rem;
@@ -93,4 +93,11 @@ th, td {
 }
 .btn-modal{
   margin-top: 40px;
+}
+.modal-style{
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
 }

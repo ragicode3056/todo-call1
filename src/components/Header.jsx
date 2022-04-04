@@ -2,7 +2,7 @@ import classes from './styles/Header.module.css';
 import { useState } from 'react';
 import { Login } from './Login';
 import { Overlay } from './Overlay';
-export const Header = () =>{
+export const Header = (props) =>{
     const [logInModal,setModalStatus] = useState(false);
     const [personTxt,setPrsonTxt] = useState("Login");
 
@@ -12,6 +12,7 @@ export const Header = () =>{
     const submitHandler = () =>{
         setModalStatus(false);
         setPrsonTxt("Welcome Alexa");
+        props.loginStatus(true);
     }
     const closeHandler = () =>{
         setModalStatus(false);
@@ -30,3 +31,4 @@ export const Header = () =>{
         </div>
     )
 }
+

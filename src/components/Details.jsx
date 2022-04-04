@@ -1,12 +1,21 @@
 import classes from './styles/Detail.module.css';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 
-export const Details = ({addDetails}) => {
+export const Details = ({addDetails,name='',date='',type='',editable=true}) => {
 
-    const [tname,setTname] = useState('');
-    const [tdate,setTdate] = useState('');
-    const [ttype,setTtype] = useState('');
     
+    // Make use of objs 
+    const [tname,setTname] = useState(name);
+    const [tdate,setTdate] = useState(date);
+    const [ttype,setTtype] = useState(type);
+    
+    console.log({tname,tdate,ttype,name,date,type});
+    useMemo(()=>{
+        setTname(name);
+        setTtype(type);
+        //add date
+            },[name,type,date])
+
     // console.log("adddetails",addDetails());
     const submitHandler = (e) =>{
         addDetails([tname,tdate,ttype,false]);
@@ -14,9 +23,16 @@ export const Details = ({addDetails}) => {
         // clearInp();
     }
     const clearInp = (e) =>{
-        setTname("");
-        setTdate("");
-        setTtype("");
+    //   if(props.loginStatus == false){
+    //       console.log(props.loginStatus);
+        //  setTname("");
+        // setTdate("");
+        // setTtype("");
+    //   }
+        // setTname("");
+        // setTdate("");
+        // setTtype("");
+    //  console.log(props.loginStatus);
     }
 
     return (
@@ -25,7 +41,7 @@ export const Details = ({addDetails}) => {
             <div className="grand-parent">
                 <div className="parent">
                     <form onSubmit = {e => {submitHandler(e)}}>
-                        <div className = {classes.detailsInp}>
+                        <div className = {classes.detailsInp} >
                             <div>
                                 <label htmlFor = "tast">Enter Task</label>
                                 <input
@@ -34,8 +50,8 @@ export const Details = ({addDetails}) => {
                                  id="task"
                                  className={classes.detailsInpField}
                                  value= {tname}
-                                 onChange = {e =>setTname(e.target.value)}
-                                 onFocus = {clearInp}
+                                 onChange = {e => editable && setTname(e.target.value)}
+                                
                                 ></input>
                             </div>
                             <div>
@@ -63,7 +79,7 @@ export const Details = ({addDetails}) => {
                             </div>
                         </div>               
                         <div>
-                            <button type="submit" className="btn">Add Details</button>
+                            <button type="submit" className={`${classes.btnColor} btn` }  >Add Details</button>
                         </div>
                     </form>
                 </div>
@@ -71,4 +87,4 @@ export const Details = ({addDetails}) => {
         </div>
     )
 }
-    
+

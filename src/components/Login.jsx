@@ -1,7 +1,7 @@
 export const Login = (props) =>{
     return (
         <div className="modal">
-            <div>
+            <div className="modal-style">
                 <div className="modal-entries">
                     <label htmlFor = "name" >Enter Name</label>
                     <input type="text" ></input>
